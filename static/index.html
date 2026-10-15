@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MESC Copilot</title>
+  <meta name="description" content="جست‌وجوی هوشمند کدهای کالا در کاتالوگ MESC">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="MESC Copilot home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span><strong>MESC Copilot</strong><small>جست‌وجوی کدهای کالا</small></span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span> سرویس آماده است</span>
+    </header>
+    <section class="hero">
+      <div class="eyebrow">CATALOGUE SEARCH / 01</div>
+      <h1>نیاز کالایت را<br><span>با زبان خودت بنویس.</span></h1>
+      <p>شرح فنی، سایز، جنس، برند یا استاندارد را وارد کن تا نزدیک‌ترین رکوردهای کاتالوگ را پیدا کنیم.</p>
+    </section>
+    <section class="search-panel" aria-labelledby="search-title">
+      <div class="panel-heading"><div><span class="section-kicker">جست‌وجوی جدید</span><h2 id="search-title">چه کالایی نیاز داری؟</h2></div><span class="shortcut">Ctrl / ⌘ + Enter</span></div>
+      <form id="search-form">
+        <label for="query">شرح درخواست</label>
+        <textarea id="query" rows="3" placeholder="مثلاً: لوله دو اینچی پلاستیکی برند داچ با اتصال فلنجی" required></textarea>
+        <div class="examples" aria-label="نمونه درخواست‌ها">
+          <button type="button" class="example" data-query="لوله دو اینچی پلاستیکی برند داچ">لوله پلاستیکی ۲ اینچ</button>
+          <button type="button" class="example" data-query="2 inch gate valve class 150 flanged">Gate valve / Class 150</button>
+          <button type="button" class="example" data-query="پمپ سانتریفیوژ استیل 4 اینچ">پمپ سانتریفیوژ استیل</button>
+        </div>
+        <div class="form-footer">
+          <label class="toggle-label"><input id="use-ai" type="checkbox" checked><span class="toggle"></span><span>فهم درخواست با AI</span></label>
+          <label class="limit-label" for="limit">تعداد نتیجه <select id="limit"><option>5</option><option selected>10</option><option>20</option></select></label>
+          <button id="submit" class="primary" type="submit"><span>جست‌وجو</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg></button>
+        </div>
+      </form>
+    </section>
+    <section id="feedback" class="feedback" role="status" aria-live="polite"></section>
+    <section id="results-section" class="results-section hidden" aria-labelledby="results-title">
+      <div class="results-heading"><div><span class="section-kicker">نتایج بازیابی‌شده</span><h2 id="results-title">پیشنهادهای نزدیک</h2></div><span id="result-count" class="result-count"></span></div>
+      <div id="parsed" class="parsed"></div>
+      <div id="results" class="results-grid"></div>
+    </section>
+    <footer>این محیط آزمایشی از کاتالوگ مصنوعی استفاده می‌کند. انتخاب نهایی کالا باید با مشخصات فنی و فرایند سازمانی بررسی شود.</footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
